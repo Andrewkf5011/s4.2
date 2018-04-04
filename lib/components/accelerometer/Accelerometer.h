@@ -1,14 +1,14 @@
 #include<mbed.h>
 
-#ifndef LED_H
-#define LED_H
+#ifndef ACCELEROMETER_H
+#define ACCELEROMETER_H
 
 /**
- * @brief Describes an LED component.
+ * @brief Describes an acceleromter component.
  *
- * Version: 1.3
- * Date: 23/03/2018
- * Originally Created: 21/03/2018
+ * Version: 1.0
+ * Date: 04/04/2018
+ * Originally Created: 04/04/2018
  */
 class LED
 {
@@ -42,4 +42,4 @@ class LED
         void off();
 };
 
-#endif // LED_H
+#endif // ACCELEROMETER_H
