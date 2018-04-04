@@ -5,9 +5,9 @@
 #define ACCELEROMETER_H
 
 /**
- * @brief Describes an acceleromter component.
+ * @brief Describes an accelerometer component.
  *
- * Version: 1.0
+ * Version: 1.1
  * Date: 04/04/2018
  * Originally Created: 04/04/2018
  */
@@ -17,33 +17,43 @@ class Accelerometer
     //Roll: Z
     //Pitch: Y
     private:
-        //[acceleromter] Refers to the acceleromter itself.
-        FXOS8700QAccelerometer acceleromter;
+        //[accelerometer] Refers to the accelerometer itself.
+        FXOS8700QAccelerometer accelerometer;
 
-        //[acceleromterData] Used to get data from the acceleromter.
-        motion_data_units_t acceleromterData;
-
-        /**
-         * @brief Sets the current value of the acceleromter.
-         */
-        void getAxis();
+        //[accelerometerData] Used to get data from the accelerometer.
+        motion_data_units_t accelerometerData;
 
     public:
         /**
-         * @brief Constructor for the acceleromter class.
+         * @brief Constructor for the accelerometer class.
          * @param i2c This is the I2C used by the accelerometer.
          */
-        Accelerometer(I2C i2c);
+        Accelerometer(I2C *i2c);
 
         /**
-         * @brief Activates the acceleromter.
+         * @brief Activates the accelerometer.
          */
         void enable();
 
         /**
-         * @brief Deactivates the acceleromter.
+         * @brief Deactivates the accelerometer.
          */
         void disable();
+
+        /**
+         * @return Returns the 'X' of the accelerometer.
+         */
+        float getRoll();
+
+        /**
+         * @return Returns the 'Y' value of the accelerometer.
+         */
+        float getPitch();
+
+        /**
+         * @return Returns the 'Z' of the accelerometer.
+         */
+        float getYaw();
 };
 
 #endif // ACCELEROMETER_H
