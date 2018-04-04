@@ -6,8 +6,8 @@
  * @brief For use when referencing the different components on the board to be
  *        used in the KF5011 assignment.
  *
- * Version: 1.4
- * Date: 30/03/2018
+ * Version: 1.5
+ * Date: 04/04/2018
  * Originally Created: 22/03/2018
  */
 class AssignmentBoard

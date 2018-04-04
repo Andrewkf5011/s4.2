@@ -1,7 +1,13 @@
 #include <mbed.h>
 #include <FXOS8700Q.h>
+#include "components.h"
 
 I2C i2c(PTE25, PTE24);
+
+AssignmentBoard board;
+
+Accelerometer accelerometer(i2c);
+
 FXOS8700QAccelerometer acc(i2c, FXOS8700CQ_SLAVE_ADDR1);
 FXOS8700QMagnetometer  mag(i2c, FXOS8700CQ_SLAVE_ADDR1);
 
@@ -14,13 +20,15 @@ int main(void)
     acc.enable();
     mag.enable();
 
+    acc.disable();
+
     while (true) {
-        acc.getAxis(acc_data);
-        mag.getAxis(mag_data);
-        pc.printf("ACC: X=%+1.3f Y=%+1.3f Z=%+1.3f \t",
-                  acc_data.x, acc_data.y, acc_data.z);
-        pc.printf("MAG: X=%+4.1f Y=%+4.1f Z=%+4.1f\n",
-                  mag_data.x, mag_data.y, mag_data.z);
-        wait(1);
+        // acc.getAxis(acc_data);
+        // mag.getAxis(mag_data);
+        // pc.printf("ACC: X=%+1.3f Y=%+1.3f Z=%+1.3f \t",
+        //           acc_data.x, acc_data.y, acc_data.z);
+        // pc.printf("MAG: X=%+4.1f Y=%+4.1f Z=%+4.1f\n",
+        //           mag_data.x, mag_data.y, mag_data.z);
+        // wait(1);
     }
 }
