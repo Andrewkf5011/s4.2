@@ -50,10 +50,6 @@ class Accelerometer
          */
         float getPitch();
 
-        /**
-         * @return Returns the 'Z' of the accelerometer.
-         */
-        float getYaw();
 };
 
 #endif // ACCELEROMETER_H

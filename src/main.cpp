@@ -34,7 +34,7 @@ int main(void)
 
         // pc.printf("Roll: %+1.3f \n", accelerometer.getRoll());
         // pc.printf("Pitch: %+1.3f \n", accelerometer.getPitch());
-        pc.printf("Yaw: %+1.3f \n", accelerometer.getYaw());
+    
         wait(1);
     }
 }

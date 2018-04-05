@@ -30,10 +30,3 @@ float Accelerometer::getPitch()
 
     return accelerometerData.y;
 }
-
-float Accelerometer::getYaw()
-{
-    accelerometer.getAxis(accelerometerData);
-
-    return accelerometerData.z;
-}
