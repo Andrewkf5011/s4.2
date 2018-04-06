@@ -7,34 +7,32 @@ I2C i2c(PTE25, PTE24);
 AssignmentBoard board;
 
 Accelerometer accelerometer(&i2c);
-
-// FXOS8700QMagnetometer  mag(i2c, FXOS8700CQ_SLAVE_ADDR1);
+Magnetometer magnetometer(&i2c);
 
 Serial pc(USBTX, USBRX);
 
 int main(void)
 {
-
-    // motion_data_units_t mag_data;
-
     accelerometer.enable();
-    // mag.enable();
+    magnetometer.enable();
 
     while (true)
     {
-        //mag.getAxis(mag_data);
-        // pc.printf("ACC: X=%+1.3f Y=%+1.3f Z=%+1.3f \n",
-        //           accelerometer.getRoll(),
-        //           accelerometer.getPitch(),
-        //           accelerometer.getYaw()
-        // );
-        //
-        // pc.printf("MAG: X=%+4.1f Y=%+4.1f Z=%+4.1f\n",
-        //           mag_data.x, mag_data.y, mag_data.z);
+        accelerometer.update();
+        magnetometer.update();
+        
+        pc.printf("ACC: X=%+1.3f Y=%+1.3f Z=%+1.3f \n",
+            accelerometer.getX(),
+            accelerometer.getY(),
+            accelerometer.getZ()
+        );
 
-        // pc.printf("Roll: %+1.3f \n", accelerometer.getRoll());
-        // pc.printf("Pitch: %+1.3f \n", accelerometer.getPitch());
-    
+        pc.printf("MAG: X=%+4.1f Y=%+4.1f Z=%+4.1f\n",
+            magnetometer.getX(),
+            magnetometer.getY(),
+            magnetometer.getZ()
+        );
+
         wait(1);
     }
 }

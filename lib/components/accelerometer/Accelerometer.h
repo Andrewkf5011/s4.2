@@ -7,15 +7,12 @@
 /**
  * @brief Describes an accelerometer component.
  *
- * Version: 1.1
- * Date: 04/04/2018
+ * Version: 1.2
+ * Date: 06/04/2018
  * Originally Created: 04/04/2018
  */
 class Accelerometer
 {
-    //Yaw: Z
-    //Roll: Z
-    //Pitch: Y
     private:
         //[accelerometer] Refers to the accelerometer itself.
         FXOS8700QAccelerometer accelerometer;
@@ -31,6 +28,11 @@ class Accelerometer
         Accelerometer(I2C *i2c);
 
         /**
+         * @brief Updates the acelerometer.
+         */
+        void update();
+
+        /**
          * @brief Activates the accelerometer.
          */
         void enable();
@@ -43,12 +45,17 @@ class Accelerometer
         /**
          * @return Returns the 'X' of the accelerometer.
          */
-        float getRoll();
+        float getX();
 
         /**
          * @return Returns the 'Y' value of the accelerometer.
          */
-        float getPitch();
+        float getY();
+
+        /**
+         * @return Returns the 'Z' value of the accelerometer.
+         */
+        float getZ();
 
 };
 

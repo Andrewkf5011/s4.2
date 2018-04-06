@@ -7,6 +7,11 @@ Accelerometer::Accelerometer(I2C *i2c) : accelerometer(*i2c, FXOS8700CQ_SLAVE_AD
 
 }
 
+void Accelerometer::update()
+{
+    accelerometer.getAxis(accelerometerData);
+}
+
 void Accelerometer::enable()
 {
     accelerometer.enable();
@@ -17,16 +22,17 @@ void Accelerometer::disable()
     accelerometer.disable();
 }
 
-float Accelerometer::getRoll()
+float Accelerometer::getX()
 {
-    accelerometer.getAxis(accelerometerData);
-
     return accelerometerData.x;
 }
 
-float Accelerometer::getPitch()
+float Accelerometer::getY()
 {
-    accelerometer.getAxis(accelerometerData);
-
     return accelerometerData.y;
+}
+
+float Accelerometer::getZ()
+{
+    return accelerometerData.z;
 }

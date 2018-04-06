@@ -7,3 +7,4 @@
 #include "potentiometer/Potentiometer.h"
 #include "speaker/Speaker.h"
 #include "accelerometer/Accelerometer.h"
+#include "magnetometer/Magnetometer.h"
